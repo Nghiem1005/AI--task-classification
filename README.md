@@ -26,6 +26,7 @@ A Model-View-Controller (MVC) architecture-based server backend application.
 
 1. Clone the repository
 2. Install dependencies:
+
    ```bash
    npm install
    ```
@@ -47,22 +48,29 @@ npm test
 ## Architecture
 
 ### Models
+
 Data models and database interactions.
 
 ### Controllers
+
 Handle business logic and request processing.
 
 ### Views
+
 Response templates and data formatting.
 
 ### Routes
+
 API endpoint definitions.
 
 ### Middlewares
+
 Custom middleware for request processing.
 
 ### Config
+
 Configuration files for database, environment, etc.
 
 ### Utils
+
 Helper functions and utilities.

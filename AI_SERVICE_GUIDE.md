@@ -9,6 +9,7 @@ npm install @tensorflow/tfjs @tensorflow/tfjs-node
 ```
 
 For GPU support:
+
 ```bash
 npm install @tensorflow/tfjs-node-gpu
 ```
@@ -18,12 +19,12 @@ npm install @tensorflow/tfjs-node-gpu
 ### 1. Update your app.js to include AI routes
 
 ```javascript
-const express = require('express');
+const express = require("express");
 const app = express();
-const aiRoutes = require('./routes/aiRoutes');
+const aiRoutes = require("./routes/aiRoutes");
 
 app.use(express.json());
-app.use('/api/ai', aiRoutes);
+app.use("/api/ai", aiRoutes);
 
 module.exports = app;
 ```
@@ -77,14 +78,14 @@ curl http://localhost:3000/api/ai/available-models
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/ai/load-model` | Load a TensorFlow model |
-| POST | `/api/ai/predict` | Make a single prediction |
-| POST | `/api/ai/batch-predict` | Make batch predictions |
-| GET | `/api/ai/model-info` | Get current model information |
-| DELETE | `/api/ai/unload-model` | Unload the current model |
-| GET | `/api/ai/available-models` | Get list of available pre-trained models |
+| Method | Endpoint                   | Description                              |
+| ------ | -------------------------- | ---------------------------------------- |
+| POST   | `/api/ai/load-model`       | Load a TensorFlow model                  |
+| POST   | `/api/ai/predict`          | Make a single prediction                 |
+| POST   | `/api/ai/batch-predict`    | Make batch predictions                   |
+| GET    | `/api/ai/model-info`       | Get current model information            |
+| DELETE | `/api/ai/unload-model`     | Unload the current model                 |
+| GET    | `/api/ai/available-models` | Get list of available pre-trained models |
 
 ## Supported Models
 
@@ -116,17 +117,20 @@ models/
 ## Understanding the Architecture
 
 ### AIService (aiService.js)
+
 - Core service for model management and predictions
 - Handles tensor operations
 - Memory management (tensor disposal)
 - Single model instance management
 
 ### ModelLoader (modelLoader.js)
+
 - Loads models from various sources (local paths, URLs)
 - Supports different TensorFlow model formats
 - Pre-trained model references
 
 ### AIController (aiController.js)
+
 - HTTP request handlers
 - Input validation
 - Error handling and responses
@@ -134,10 +138,10 @@ models/
 ## Usage in Your Code
 
 ```javascript
-const AIService = require('./src/services/aiService');
+const AIService = require("./src/services/aiService");
 
 // Load a model
-await AIService.loadModel('path/to/model.json', 'my-model');
+await AIService.loadModel("path/to/model.json", "my-model");
 
 // Make predictions
 const result = await AIService.predict([1, 2, 3]);
@@ -162,6 +166,7 @@ AIService.unloadModel();
 ## Environment Variables
 
 Add to your `.env`:
+
 ```
 AI_MODEL_PATH=path/to/your/model.json
 AI_GPU_ENABLED=true
